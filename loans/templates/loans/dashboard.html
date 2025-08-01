@@ -1,0 +1,26 @@
+<h2>My Loan Applications</h2>
+
+{% if loans %}
+  <table border="1">
+    <tr>
+      <th>Amount</th>
+      <th>Tenure (months)</th>
+      <th>Interest Rate</th>
+      <th>Status</th>
+      <th>Applied On</th>
+    </tr>
+    {% for loan in loans %}
+    <tr>
+      <td>{{ loan.amount }}</td>
+      <td>{{ loan.tenure_months }}</td>
+      <td>{{ loan.interest_rate }}%</td>
+      <td>{{ loan.status|title }}</td>
+      <td>{{ loan.created_at|date:"M d, Y" }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  <p>You haven’t applied for any loans yet.</p>
+{% endif %}
+
+<a href="{% url 'apply_loan' %}">Apply for a new loan</a>
