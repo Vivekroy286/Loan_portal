@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect 
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegisterForm, UserProfileForm
 from .models import UserProfile
-
+from django.urls import reverse
 def register_view(request):
     if request.method == 'POST':
         user_form = UserRegisterForm(request.POST)
@@ -32,7 +32,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')  # update this later
+            return redirect('/loans/dashboard/') # update this later
         else:
             return render(request, 'accounts/login.html', {'error': 'Invalid credentials'})
     
