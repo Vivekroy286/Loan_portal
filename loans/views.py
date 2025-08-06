@@ -26,4 +26,4 @@ def apply_loan(request):
     
 @login_required
 def loan_success(request):
-    return render(request, 'loan/success.html')
+    return render(request, 'loans/success.html')
