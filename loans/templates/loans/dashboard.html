@@ -5,60 +5,83 @@
   <title>My Loan Applications</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-900 font-sans flex flex-col min-h-screen">
 
-  <div class="max-w-5xl mx-auto py-10 px-4">
-    <h2 class="text-2xl font-bold mb-6 text-center">My Loan Applications</h2>
-
-    {% if loans %}
-      <div class="overflow-x-auto rounded-lg shadow border border-gray-200">
-        <table class="min-w-full bg-white text-sm">
-          <thead class="bg-gray-100">
-            <tr>
-              <th class="px-4 py-2 text-left">Amount</th>
-              <th class="px-4 py-2 text-left">Tenure (months)</th>
-              <th class="px-4 py-2 text-left">Interest Rate</th>
-              <th class="px-4 py-2 text-left">Status</th>
-              <th class="px-4 py-2 text-left">Applied On</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for loan in loans %}
-            <tr class="border-t">
-              <td class="px-4 py-2">₹{{ loan.amount }}</td>
-              <td class="px-4 py-2">{{ loan.tenure_months }}</td>
-              <td class="px-4 py-2">{{ loan.interest_rate }}%</td>
-              <td class="px-4 py-2">
-                <span class="inline-block px-2 py-1 text-xs font-semibold rounded-full
-                  {% if loan.status == 'approved' %}
-                    bg-green-100 text-green-800
-                  {% elif loan.status == 'pending' %}
-                    bg-yellow-100 text-yellow-800
-                  {% elif loan.status == 'rejected' %}
-                    bg-red-100 text-red-800
-                  {% else %}
-                    bg-gray-100 text-gray-800
-                  {% endif %}
-                ">
-                  {{ loan.status|title }}
-                </span>
-              </td>
-              <td class="px-4 py-2">{{ loan.created_at|date:"M d, Y" }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    {% else %}
-      <p class="text-center text-gray-600">You haven’t applied for any loans yet.</p>
-    {% endif %}
-
-    <div class="mt-6 text-center">
-      <a href="{% url 'apply_loan' %}" class="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
-        Apply for a new loan
-      </a>
+  <!-- Header -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-600">MoneyMitra</h1>
+      <nav class="space-x-4 text-sm md:text-base">
+        {% comment %} <a href="{% url 'home' %}" class="text-gray-700 hover:text-blue-600">Home</a>
+        <a href="{% url 'apply_loan' %}" class="text-gray-700 hover:text-blue-600">Apply</a> {% endcomment %}
+        <a href="{% url 'loan_dashboard' %}" class="text-gray-700 hover:text-blue-600">Dashboard</a>
+        <a href="{% url 'logout' %}" class="text-gray-700 hover:text-blue-600">Logout</a>
+      </nav>
     </div>
-  </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow">
+    <div class="max-w-5xl mx-auto py-10 px-4">
+      <h2 class="text-2xl font-bold mb-6 text-center">My Loan Applications</h2>
+
+      {% if loans %}
+        <div class="overflow-x-auto rounded-lg shadow border border-gray-200">
+          <table class="min-w-full bg-white text-sm">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 text-left">Amount</th>
+                <th class="px-4 py-2 text-left">Tenure (months)</th>
+                <th class="px-4 py-2 text-left">Interest Rate</th>
+                <th class="px-4 py-2 text-left">Status</th>
+                <th class="px-4 py-2 text-left">Applied On</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for loan in loans %}
+              <tr class="border-t">
+                <td class="px-4 py-2">₹{{ loan.amount }}</td>
+                <td class="px-4 py-2">{{ loan.tenure_months }}</td>
+                <td class="px-4 py-2">{{ loan.interest_rate }}%</td>
+                <td class="px-4 py-2">
+                  <span class="inline-block px-2 py-1 text-xs font-semibold rounded-full
+                    {% if loan.status == 'approved' %}
+                      bg-green-100 text-green-800
+                    {% elif loan.status == 'pending' %}
+                      bg-yellow-100 text-yellow-800
+                    {% elif loan.status == 'rejected' %}
+                      bg-red-100 text-red-800
+                    {% else %}
+                      bg-gray-100 text-gray-800
+                    {% endif %}
+                  ">
+                    {{ loan.status|title }}
+                  </span>
+                </td>
+                <td class="px-4 py-2">{{ loan.created_at|date:"M d, Y" }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="text-center text-gray-600">You haven’t applied for any loans yet.</p>
+      {% endif %}
+
+      <div class="mt-6 text-center">
+        <a href="{% url 'apply_loan' %}" class="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+          Apply for a new loan
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 mt-10">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-600">
+      &copy; 2025 MoneyMitra. All rights reserved.
+    </div>
+  </footer>
 
 </body>
 </html>

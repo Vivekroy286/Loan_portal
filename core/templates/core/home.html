@@ -2,72 +2,175 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Loan Portal Home</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MoneyMitra - Personal Loan Made Easy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <!-- Hero Section -->
-  <section class="bg-blue-600 text-white py-20 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Instant Personal Loan</h1>
-    <p class="text-lg md:text-xl mb-6">Quick approval. Minimal documentation. Money in 24 hours.</p>
-    <a href="{% url 'apply_loan' %}" class="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-md hover:bg-gray-200">
-      Apply Now
-    </a>
-  </section>
-
-  <!-- EMI Calculator (dynamic) -->
-  <section class="py-16 mx-auto max-w-lg px-4">
-    <h2 class="text-2xl font-semibold mb-6 text-center text-blue-700">Estimate Your EMI</h2>
-    <form id="emi-form" class="space-y-4">
-      <input type="number" id="loanAmount" placeholder="Loan Amount (₹)" class="w-full px-4 py-2 border rounded" required>
-      <input type="number" id="tenure" placeholder="Tenure (months)" class="w-full px-4 py-2 border rounded" required>
-      <input type="number" step="0.01" id="interestRate" placeholder="Interest Rate (% per annum)" class="w-full px-4 py-2 border rounded" required>
-    </form>
-
-    <div class="mt-6 text-center">
-      <p class="text-lg font-semibold">Estimated EMI: 
-        <span id="emiResult" class="text-green-600">₹0.00</span>
-      </p>
+  <!-- Header -->
+  <header class="bg-white shadow fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-600">MoneyMitra</h1>
+      <nav class="space-x-4">
+        <a href="{% url 'login' %}" class="text-blue-600 hover:underline">Login</a>
+        <a href="{% url 'register' %}" class="text-blue-600 hover:underline">Register</a>
+        <a href="{% url 'apply_loan' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Apply Now</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- Features Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center px-4">
-      <div><h3 class="font-bold mb-2">Quick Approval</h3><p>Get pre-approved in minutes.</p></div>
-      <div><h3 class="font-bold mb-2">Minimal Docs</h3><p>Only basic KYC and income proofs.</p></div>
-      <div><h3 class="font-bold mb-2">Flexible Tenure</h3><p>Repay over 12–96 months.</p></div>
+  <main class="pt-20">
+
+    <!-- Image Slider -->
+    <section class="pt-0">
+      <div class="swiper mySwiper w-full h-[400px] md:h-[550px] relative">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative">
+            <img src="https://unsplash.com/photos/person-in-black-suit-jacket-holding-white-tablet-computer-nApaSgkzaxg" alt="Slide 1" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white px-4 text-center">
+              <h2 class="text-3xl md:text-5xl font-bold mb-2">Welcome to MoneyMitra</h2>
+              <p class="text-lg md:text-xl">Your trusted loan partner for a secure future</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide relative">
+            <img src="https://source.unsplash.com/1600x600/?finance,loan" alt="Slide 2" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white px-4 text-center">
+              <h2 class="text-3xl md:text-5xl font-bold mb-2">EMI Starting at ₹999</h2>
+              <p class="text-lg md:text-xl">Flexible repayment options tailored to you</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide relative">
+            <img src="https://source.unsplash.com/1600x600/?online,banking" alt="Slide 3" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white px-4 text-center">
+              <h2 class="text-3xl md:text-5xl font-bold mb-2">100% Online Process</h2>
+              <p class="text-lg md:text-xl">No paperwork. No hassle. Get started in minutes</p>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide relative">
+            <img src="https://source.unsplash.com/1600x600/?credit,card" alt="Slide 4" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white px-4 text-center">
+              <h2 class="text-3xl md:text-5xl font-bold mb-2">Low Interest Rates</h2>
+              <p class="text-lg md:text-xl">As low as 10.5% per annum</p>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="swiper-slide relative">
+            <img src="https://source.unsplash.com/1600x600/?credit,card" alt="Slide 4" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white px-4 text-center">
+              <h2 class="text-3xl md:text-5xl font-bold mb-2">Low Interest Rates</h2>
+              <p class="text-lg md:text-xl">As low as 10.5% per annum</p>
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- Navigation -->
+        <div class="swiper-button-next text-white"></div>
+        <div class="swiper-button-prev text-white"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white text-center py-20 px-4">
+      <h2 class="text-4xl font-bold mb-4">Instant Personal Loans with MoneyMitra</h2>
+      <p class="text-lg mb-6">Quick approvals, flexible tenure, and minimal documentation</p>
+      <a href="{% url 'apply_loan' %}" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded hover:bg-gray-200">
+        Get Started
+      </a>
+    </section>
+
+    <!-- EMI Calculator -->
+    <section class="py-16 bg-white">
+      <div class="max-w-2xl mx-auto px-4">
+        <h3 class="text-2xl font-semibold mb-4 text-center">EMI Calculator</h3>
+        <div class="bg-gray-100 p-6 rounded shadow">
+          <form onsubmit="calculateEMI(event)" class="space-y-4">
+            <input type="number" id="amount" placeholder="Loan Amount (₹)" class="w-full px-4 py-2 border rounded" required>
+            <input type="number" id="interest" placeholder="Interest Rate (%)" class="w-full px-4 py-2 border rounded" required>
+            <input type="number" id="tenure" placeholder="Tenure (in months)" class="w-full px-4 py-2 border rounded" required>
+            <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Calculate EMI</button>
+          </form>
+          <div id="emiResult" class="mt-4 text-center text-lg font-medium text-green-700"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loan Features -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center px-4">
+        <div>
+          <h4 class="text-xl font-bold mb-2">Quick Approval</h4>
+          <p>Apply and get approval in minutes</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold mb-2">Minimal Documentation</h4>
+          <p>Just basic KYC and income proof</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold mb-2">Flexible Repayment</h4>
+          <p>Choose tenure between 12 and 96 months</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white py-6 border-t text-center text-sm text-gray-600">
+    <p>&copy; 2025 MoneyMitra. All rights reserved.</p>
+    <div class="mt-2 space-x-4">
+      <a href="{% url 'login' %}" class="hover:underline">Login</a>
+      <a href="{% url 'register' %}" class="hover:underline">Register</a>
+      <a href="{% url 'apply_loan' %}" class="hover:underline">Apply Loan</a>
     </div>
-  </section>
-
-  <!-- Footer & Links -->
-  <footer class="py-6 text-center">
-    <a href="{% url 'login' %}" class="mx-2 text-blue-600 hover:underline">Login</a>
-    <a href="{% url 'register' %}" class="mx-2 text-blue-600 hover:underline">Register</a>
   </footer>
 
-  <!-- EMI Calculator Script -->
+  <!-- JS for EMI Calculation -->
   <script>
-    function calculateEMI() {
-      const P = parseFloat(document.getElementById("loanAmount").value);
-      const N = parseInt(document.getElementById("tenure").value);
-      const annualRate = parseFloat(document.getElementById("interestRate").value);
+    function calculateEMI(event) {
+      event.preventDefault();
+      const amount = parseFloat(document.getElementById('amount').value);
+      const interest = parseFloat(document.getElementById('interest').value);
+      const tenure = parseFloat(document.getElementById('tenure').value);
 
-      if (isNaN(P) || isNaN(N) || isNaN(annualRate) || P <= 0 || N <= 0 || annualRate < 0) {
-        document.getElementById("emiResult").innerText = "₹0.00";
-        return;
-      }
+      const monthlyInterest = interest / (12 * 100);
+      const emi = (amount * monthlyInterest * Math.pow(1 + monthlyInterest, tenure)) /
+                  (Math.pow(1 + monthlyInterest, tenure) - 1);
 
-      const R = annualRate / 12 / 100;
-      const emi = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
-      document.getElementById("emiResult").innerText = "₹" + emi.toFixed(2);
+      document.getElementById('emiResult').innerText = `Estimated EMI: ₹${emi.toFixed(2)}`;
     }
+  </script>
 
-    const inputs = document.querySelectorAll("#loanAmount, #tenure, #interestRate");
-    inputs.forEach(input => {
-      input.addEventListener("input", calculateEMI);
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
     });
   </script>
 
