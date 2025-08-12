@@ -10,24 +10,53 @@
 <body class="bg-gray-100 text-gray-800">
 
   <!-- Header -->
-  <header class="bg-white shadow fixed w-full top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-600">MoneyMitra</h1>
-      <nav class="space-x-4">
-        <a href="{% url 'personal_loan' %}" class="text-blue-600 hover:underline">Personal Loan</a>
-        <a href="{% url 'business_loan' %}" class="text-blue-600 hover:underline">Business Loan</a>
-        <a href="{% url 'login' %}" class="text-blue-600 hover:underline">Login</a>
-        <a href="{% url 'register' %}" class="text-blue-600 hover:underline">Register</a>
-        <a href="{% url 'apply_loan' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Apply Now</a>
-      </nav>
-    </div>
-  </header>
+<header class="bg-white shadow fixed w-full top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-blue-600">MoneyMitra</h1>
 
-  <main class="pt-20">
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-4 items-center ">
+      <a href="{% url 'personal_loan' %}" class="text-blue-600 hover:underline">Personal Loan</a>
+      <a href="{% url 'business_loan' %}" class="text-blue-600 hover:underline">Business Loan</a>
+      <a href="{% url 'login' %}" class="text-blue-600 hover:underline">Login</a>
+      <a href="{% url 'register' %}" class="text-blue-600 hover:underline">Register</a>
+      <a href="{% url 'apply_loan' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Apply Now</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-button" class="md:hidden text-blue-600 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="hidden md:hidden bg-white px-4 pt-2 pb-4 space-y-1 border-t border-gray-200">
+    <a href="{% url 'personal_loan' %}" class="block text-blue-600 hover:underline">Personal Loan</a>
+    <a href="{% url 'business_loan' %}" class="block text-blue-600 hover:underline">Business Loan</a>
+    <a href="{% url 'login' %}" class="block text-blue-600 hover:underline">Login</a>
+    <a href="{% url 'register' %}" class="block text-blue-600 hover:underline">Register</a>
+    <a href="{% url 'apply_loan' %}" class="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-center">Apply Now</a>
+  </nav>
+
+  <script>
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</header>
+
+
+  <main class="pt-0">
 
     <!-- Image Slider -->
     <section class="pt-0">
-      <div class="swiper mySwiper w-full h-[400px] md:h-[550px] relative">
+      <div class="swiper mySwiper w-full h-screen  relative">
         <div class="swiper-wrapper">
 
           <!-- Slide 1 -->
@@ -86,12 +115,28 @@
     </section>
 
     <!-- Hero Section -->
-    <section class="bg-blue-600 text-white text-center py-20 px-4">
+    <section class="bg-blue-400 text-white text-center py-20 px-4">
       <h2 class="text-4xl font-bold mb-4">Instant Personal Loans with MoneyMitra</h2>
       <p class="text-lg mb-6">Quick approvals, flexible tenure, and minimal documentation</p>
       <a href="{% url 'apply_loan' %}" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded hover:bg-gray-200">
         Get Started
       </a>
+    </section>
+
+    <!-- descriptions-->
+    <section class="bg-white text-gray text-center pt-6 ">
+      <h3 class="text-3xl font-bold mb-4">What Makes MoneyMitra Outstanding ?<h3>
+      <p class="text-lg pb-6">Our customer-oriented aspects make us the favourites!</p>
+      </section>
+
+    <section class="bg-white text-gray text-center pt-6 ">
+      <div>
+        <div class="md:container md:mx-auto">
+  <div class="flex flex-col @md:flex-row">
+    
+  </div>
+</div>
+      </div>
     </section>
 
     <!-- EMI Calculator -->
@@ -130,15 +175,7 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white py-6 border-t text-center text-sm text-gray-600">
-    <p>&copy; 2025 MoneyMitra. All rights reserved.</p>
-    <div class="mt-2 space-x-4">
-      <a href="{% url 'login' %}" class="hover:underline">Login</a>
-      <a href="{% url 'register' %}" class="hover:underline">Register</a>
-      <a href="{% url 'apply_loan' %}" class="hover:underline">Apply Loan</a>
-    </div>
-  </footer>
+  
 
   <!-- JS for EMI Calculation -->
   <script>
@@ -175,6 +212,52 @@
       },
     });
   </script>
+
+  <!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-10 mt-16">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+    
+    <!-- Logo & About -->
+    <div>
+      <h2 class="text-white text-xl font-bold mb-3">Moneymitra</h2>
+      <p>Your trusted partner for quick & easy personal loans with transparent processing.</p>
+    </div>
+    
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-white font-semibold mb-3">Quick Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Home</a></li>
+        <li><a href="#" class="hover:text-white">Apply Loan</a></li>
+        <li><a href="#" class="hover:text-white">Eligibility Check</a></li>
+        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+      </ul>
+    </div>
+    
+    <!-- Contact Info -->
+    <div>
+      <h3 class="text-white font-semibold mb-3">Contact Us</h3>
+      <p>Email: support@moneymitra.com</p>
+      <p>Phone: +91 9919753574</p>
+      <p>Address: Ayodhya, India</p>
+    </div>
+
+    <!-- Social Links -->
+    <div>
+      <h3 class="text-white font-semibold mb-3">Follow Us</h3>
+      <div class="flex space-x-4">
+        <a href="#" class="hover:text-white">Facebook</a>
+        <a href="#" class="hover:text-white">Instagram</a>
+        <a href="#" class="hover:text-white">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
+    © 2025 Moneymitra. All Rights Reserved.
+  </div>
+</footer>
+
 
 </body>
 </html>
