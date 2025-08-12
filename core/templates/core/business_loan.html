@@ -1,0 +1,49 @@
+{% extends "core/home.html" %}
+{% block content %}
+<section class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Business Loan</h2>
+    <p class="text-gray-700 mb-6">
+      Fast, unsecured business loans with flexible tenure and minimal documentation. Higher loan amounts, secure interest rates from <strong>11.5% APR</strong>, and a streamlined 100% digital application process. :contentReference[oaicite:1]{index=1}
+    </p>
+
+    <h3 class="text-xl font-semibold mb-4">Eligibility & Required Documents</h3>
+    <ul class="list-disc list-inside text-gray-700 mb-6">
+      <li>Minimum age: 21 years</li>
+      <li>At least 1 year business stability</li>
+      <li>For audited businesses: ₹1 Cr+ annual turnover with audited reports</li>
+      <li>Documents: KYC, business proof, bank statements, ITRs & balance sheets :contentReference[oaicite:2]{index=2}</li>
+    </ul>
+
+    <!-- EMI Calculator -->
+    <div class="bg-gray-50 p-6 rounded-lg shadow mb-8">
+      <h3 class="text-2xl font-semibold mb-4">Estimate Your EMI</h3>
+      <form onsubmit="calculateEMI(event)" class="space-y-4">
+        <input type="number" id="amount" placeholder="Loan Amount (₹)" class="w-full px-4 py-2 border rounded" required>
+        <input type="number" id="interest" placeholder="Interest Rate (%)" class="w-full px-4 py-2 border rounded" value="11.5" required>
+        <input type="number" id="tenure" placeholder="Tenure (months)" class="w-full px-4 py-2 border rounded" required>
+        <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Calculate EMI</button>
+      </form>
+      <div id="emiResult" class="mt-4 text-center text-lg font-medium text-green-700"></div>
+    </div>
+
+    <div class="text-center">
+      <a href="{% url 'apply_loan' %}?type=business" class="inline-block bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700">
+        Apply for Business Loan
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function calculateEMI(event) {
+    event.preventDefault();
+    const P = parseFloat(document.getElementById('amount').value);
+    const R = parseFloat(document.getElementById('interest').value) / 12 / 100;
+    const N = parseInt(document.getElementById('tenure').value);
+    const emi = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+    document.getElementById('emiResult').innerText =
+      isNaN(emi) ? 'Enter valid values' : `Estimated EMI: ₹${emi.toFixed(2)}`;
+  }
+</script>
+{% endblock %}
