@@ -10,7 +10,7 @@
 </head>
 <!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
 <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> 
-<div class="bg-gradient-to-b from-red-200 to-blue-200 w-full h-full">
+<div class="bg-gradient-to-b from-red-200 to-blue-200 w-full h-screen relative">
   <header class="absolute inset-x-0 top-0 z-50">
     <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
       <div class="flex lg:flex-1">
@@ -89,8 +89,8 @@
         </div>
       </div>
       <!-- Image -->
-      <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
-        <img src="{% static 'core/images/pi.png' %}" alt="Personal Loan" class="w-full h-auto rounded-3xl shadow-lg object-cover">
+      <div class="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center lg:justify-end">
+        <img src="{% static 'core/images/pi.png' %}" alt="Personal Loan" class="w-full max-w-md lg:max-w-full h-auto rounded-3xl shadow-lg object-cover">
       </div>
     </div>
     <!-- Promotional section -->
