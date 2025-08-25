@@ -36,7 +36,7 @@
         <a href="{% url 'login' %}" class="text-sm/6 font-semibold text-gray-900">APPLY NOW</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="text-sm/6 font-semibold text-gray-900">LOGIN <span aria-hidden="true">&rarr;</span></a>
+        <a href="{% url 'login' %}" class="text-sm/6 font-semibold text-gray-900">LOGIN <span aria-hidden="true">&rarr;</span></a>
       </div>
     </nav>
     <el-dialog>
@@ -60,11 +60,11 @@
                 <div class="space-y-2 py-6">
                   <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">COMPANY</a>
                   <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">OUR SERVICES</a>
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">PERSONAL LOANS</a>
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">BUSINESS LOAN</a>
+                  <a href="{% url 'personal_loan' %}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">PERSONAL LOANS</a>
+                  <a href="{% url 'business_loan' %}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">BUSINESS LOAN</a>
                 </div>
                 <div class="py-6">
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">LOGIN</a>
+                  <a href="{% url 'login' %}" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">LOGIN</a>
                 </div>
               </div>
             </div>
@@ -249,7 +249,7 @@
 
             <!-- Button -->
             <div class="md:w-1/3 text-center">
-              <a href="/apply-now"
+              <a href="{% url 'login' %}"
                  class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full shadow-lg transition duration-300 text-lg">
                  Apply for Business Loan
               </a>
