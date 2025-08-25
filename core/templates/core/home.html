@@ -13,15 +13,15 @@
   <!-- Header -->
 <header class="bg-transparent shadow fixed w-full top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <h1 class="text-2xl font-bold text-blue-600">MoneyMitra</h1>
+    <h1 class="text-2xl font-bold text-black-600">MoneyMitra</h1>
 
     <!-- Desktop Menu -->
     <nav class="hidden md:flex space-x-4 items-center ">
-      <a href="{% url 'personal_loan' %}" class="text-blue-600 hover:underline">Personal Loan</a>
-      <a href="{% url 'business_loan' %}" class="text-blue-600 hover:underline">Business Loan</a>
-      <a href="{% url 'login' %}" class="text-blue-600 hover:underline">Login</a>
-      <a href="{% url 'register' %}" class="text-blue-600 hover:underline">Register</a>
-      <a href="{% url 'apply_loan' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Apply Now</a>
+      <a href="{% url 'personal_loan' %}" class="font-serif text-black-600 hover:underline">Personal Loan</a>
+      <a href="{% url 'business_loan' %}" class="font-serif text-black-600 hover:underline">Business Loan</a>
+      <a href="{% url 'login' %}" class="font-serif text-black-600 hover:underline">Login</a>
+      <a href="{% url 'register' %}" class="font-serif text-black-600 hover:underline">Register</a>
+      <a href="{% url 'apply_loan' %}" class="bg-blue-600 text-white font-serif px-4 py-2 rounded hover:bg-blue-700">Apply Now</a>
     </nav>
 
     <!-- Mobile Menu Button -->
@@ -55,23 +55,57 @@
 
   <main class="pt-0">
 
-    <!-- Image Slider -->
+    <div class="relative isolate px-6 pt-0 lg:px-8">
+  <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-40">
+    <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
+  </div>
+  <div class="mx-auto max-w-7xl py-16 sm:py-24 lg:py-32">
+    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+      <!-- Text Content -->
+      <div class="w-full lg:w-1/2 text-center lg:text-left">
+        <h1 class="text-3xl font-semibold tracking-tight text-balance text-gray-900 sm:text-4xl lg:text-5xl">Welcome to MoneyMitra – Your Trusted Financial Partner</h1>
+        <p class="mt-6 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">At MoneyMitra, we believe that financial growth should be simple, transparent, and within your reach. Whether you’re a business owner seeking expansion, an individual planning for personal needs, or someone looking for reliable financial advice, we are here to guide you every step of the way. With our wide network of banks and NBFCs, expert consultation, and 100% digital process, MoneyMitra makes borrowing and financial planning easier than ever.</p>
+        <div class="mt-10 flex items-center justify-center lg:justify-start gap-x-6">
+          <a href="#" class="rounded-full px-4 py-2 text-sm font-semibold text-indigo-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 transition duration-300">Apply Now <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+      <!-- Image -->
+      <div class="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center lg:justify-end">
+        <img src="{% static 'core/images/home.png' %}" alt="Personal Loan" class="w-full max-w-md lg:max-w-full h-auto rounded-3xl shadow-lg object-cover">
+      </div>
+    </div>
+    <!-- Promotional section -->
+    
+      
+    
+  </div>
+</div>
+    
+    
+  </div>
+</div>
+
+    {% comment %} <!-- Image Slider -->
     <section class="pt-0">
       <div class="swiper mySwiper w-full h-screen  relative">
         <div class="swiper-wrapper">
 
           <!-- Slide 1 -->
-          <div class="swiper-slide relative">
-            <img src="{% static 'core/images/bg4.jpg' %}">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white px-4 text-center">
+          <div class=" swiper-slide relative">
+            <img src="{% static 'core/images/bg6.jpg' %}">
+            <div class="absolute inset-0   flex flex-col justify-center items-center text-black px-4 text-center">
               <h2 class="text-3xl md:text-5xl font-bold mb-2">Welcome to MoneyMitra</h2>
               <p class="text-lg md:text-xl">Your trusted loan partner for a secure future</p>
+              <!-- Image -->
+      <div class="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center lg:justify-end">
+        <img src="{% static 'core/images/home.png' %}" alt="Personal Loan" class="w-full max-w-md lg:max-w-full h-auto rounded-3xl shadow-lg object-cover">
+      </div>
             </div>
           </div>
 
           <!-- Slide 2 -->
           <div class="swiper-slide relative">
-            <img src="{% static 'core/images/bg1.jpg' %}">
+            <img src="{% static 'core/images/bg1.jpg' %}"> 
             <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white px-4 text-center">
               <h2 class="text-3xl md:text-5xl font-bold mb-2">EMI Starting at ₹999</h2>
               <p class="text-lg md:text-xl">Flexible repayment options tailored to you</p>
@@ -106,17 +140,17 @@
           </div> {% endcomment %}
 
 
-        </div>
+        
 
-        <!-- Navigation -->
+        {% comment %} <!-- Navigation -->
         <div class="swiper-button-next text-white"></div>
         <div class="swiper-button-prev text-white"></div>
         <div class="swiper-pagination"></div>
       </div>
-    </section>
+    </section> {% endcomment %}
 
     <!-- Hero Section -->
-    <section class="bg-blue-400 text-white text-center py-20 px-4">
+    <section class=" text-black-500 text-center py-20 px-4">
       <h2 class="text-4xl font-bold mb-4">Instant Personal Loans with MoneyMitra</h2>
       <p class="text-lg mb-6">Quick approvals, flexible tenure, and minimal documentation</p>
       <a href="{% url 'apply_loan' %}" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded hover:bg-gray-200">
@@ -127,7 +161,7 @@
     <!-- descriptions-->
     <div class="relative py-16 bg-gradient-to-b from-white to-sky-100">
   <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-    <h2 class="text-4xl font-bold text-blue-700 mb-4">
+    <h2 class="text-4xl font-bold text-black-700 mb-4">
       Why Choose MoneyMitra?
     </h2>
     <p class="text-lg text-gray-600 mb-12">
@@ -175,7 +209,7 @@
     
     <!-- Text Content -->
     <div class="lg:w-1/2 text-center lg:text-left">
-      <h2 class="text-4xl font-bold text-blue-700 mb-4">
+      <h2 class="text-4xl font-bold text-black-700 mb-4">
         Elevate Your Finances with Confidence
       </h2>
       <p class="text-lg text-gray-600 mb-6">
@@ -289,10 +323,10 @@
     <div>
       <h3 class="text-white font-semibold mb-3">Quick Links</h3>
       <ul class="space-y-2">
-        <li><a href="#" class="hover:text-white">Home</a></li>
-        <li><a href="#" class="hover:text-white">Apply Loan</a></li>
-        <li><a href="#" class="hover:text-white">Eligibility Check</a></li>
-        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+        <li><a href="{% url 'home' %}" class="hover:text-white">Home</a></li>
+        <li><a href="{% url 'apply_loan' %}" class="hover:text-white">Apply Loan</a></li>
+        <li><a href="{% url 'apply_loan' %}" class="hover:text-white">Eligibility Check</a></li>
+        <li><a href="{% url 'apply_loan' %}" class="hover:text-white">Contact Us</a></li>
       </ul>
     </div>
     
@@ -308,9 +342,9 @@
     <div>
       <h3 class="text-white font-semibold mb-3">Follow Us</h3>
       <div class="flex space-x-4">
-        <a href="#" class="hover:text-white">Facebook</a>
-        <a href="#" class="hover:text-white">Instagram</a>
-        <a href="#" class="hover:text-white">LinkedIn</a>
+        <a href="" class="hover:text-white">Facebook</a>
+        <a href="" class="hover:text-white">Instagram</a>
+        <a href="" class="hover:text-white">LinkedIn</a>
       </div>
     </div>
   </div>
